@@ -2,7 +2,7 @@ defmodule BMFontTest do
     use ExUnit.Case
     doctest BMFont
 
-    setup context do
+    setup do
         font = %BMFont{
             chars: [
                 %BMFont.Char{ channel: 15, height: 1, id: 32, page: 0, width: 3, x: 155, xadvance: 8, xoffset: -1, y: 75, yoffset: 31 },

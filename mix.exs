@@ -10,7 +10,8 @@ defmodule BMFont.Mixfile do
             build_embedded: Mix.env == :prod,
             start_permanent: Mix.env == :prod,
             deps: deps,
-            dialyzer: [plt_add_deps: true]
+            dialyzer: [plt_add_deps: true],
+            package: package
          ]
     end
 
@@ -32,9 +33,17 @@ defmodule BMFont.Mixfile do
     # Type "mix help deps" for more examples and options
     defp deps do
         [
-            { :tonic, git: "https://github.com/ScrimpyCat/Tonic" },
+            { :tonic, "~> 0.0.1"  },
             { :earmark, "~> 0.1", only: :dev },
             { :ex_doc, "~> 0.7", only: :dev }
+        ]
+    end
+
+    defp package do
+        [
+            maintainers: ["Stefan Johnson"],
+            licenses: ["BSD 2-Clause"],
+            links: %{ "GitHub" => "https://github.com/ScrimpyCat/BMFontEx" }
         ]
     end
 end
