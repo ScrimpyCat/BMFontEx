@@ -38,7 +38,7 @@ defmodule BMFont.Binary do
                         end
                         group :spacing do
                             uint8 :horizontal
-                            uint8 :vertical                        
+                            uint8 :vertical
                         end
                         uint8 :outline
                         string :face, 0
@@ -50,13 +50,13 @@ defmodule BMFont.Binary do
                         uint16 :width
                         uint16 :height
                         uint16 :pages
-                        skip bit # reserved bit 0
-                        skip bit # reserved bit 1
-                        skip bit # reserved bit 2
-                        skip bit # reserved bit 3
-                        skip bit # reserved bit 4
-                        skip bit # reserved bit 5
-                        skip bit # reserved bit 6
+                        skip bit() # reserved bit 0
+                        skip bit() # reserved bit 1
+                        skip bit() # reserved bit 2
+                        skip bit() # reserved bit 3
+                        skip bit() # reserved bit 4
+                        skip bit() # reserved bit 5
+                        skip bit() # reserved bit 6
                         bit :packed
                         uint8 :alpha_channel
                         uint8 :red_channel

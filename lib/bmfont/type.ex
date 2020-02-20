@@ -15,7 +15,7 @@ defmodule BMFont.Type do
             def parse(args) do
                 Enum.reduce(args, %unquote(env.module){}, unquote({ :fn, [env.module], Enum.map(Module.get_attribute(env.module, :types), fn
                     { cmd, name, _, :string } -> List.first(quote do
-                        <<"#{unquote(cmd)}=", arg :: binary>>, struct -> %{ struct | unquote(name) =>  String.strip(arg, ?") }
+                        <<"#{unquote(cmd)}=", arg :: binary>>, struct -> %{ struct | unquote(name) =>  String.trim(arg, "\"") }
                     end)
                     { cmd, name, _, :integer } -> List.first(quote do
                         <<"#{unquote(cmd)}=", arg :: binary>>, struct -> %{ struct | unquote(name) =>  String.to_integer(arg) }

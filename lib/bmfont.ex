@@ -25,7 +25,7 @@ defmodule BMFont do
     def parse(string) when is_binary(string), do: parse(String.split(string, "\n", trim: true))
     def parse(lines) do
         Enum.map(lines, fn line ->
-            create_tag(String.strip(line) |> String.split(" ", trim: true))
+            create_tag(String.trim(line) |> String.split(" ", trim: true))
         end) |> new
     end
 
