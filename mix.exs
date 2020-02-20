@@ -6,12 +6,12 @@ defmodule BMFont.Mixfile do
             app: :bmfont,
             description: "A BMFont file format parser",
             version: "0.0.2",
-            elixir: "~> 1.2",
+            elixir: "~> 1.5",
             build_embedded: Mix.env == :prod,
             start_permanent: Mix.env == :prod,
-            deps: deps,
+            deps: deps(),
             dialyzer: [plt_add_deps: true],
-            package: package
+            package: package()
          ]
     end
 
@@ -33,10 +33,8 @@ defmodule BMFont.Mixfile do
     # Type "mix help deps" for more examples and options
     defp deps do
         [
-            { :tonic, "~> 0.0.1"  },
-            { :earmark, "~> 0.1", only: :dev },
-            { :ex_doc, "~> 0.7", only: :dev }
-        ]
+            { :tonic, "~> 0.2.1"  }
+        ] ++ if(Version.compare(System.version, "1.7.0") == :lt, do: [{ :earmark, "~> 0.1", only: :dev }, { :ex_doc, "~> 0.7", only: :dev }], else: [{ :ex_doc, "~> 0.19", only: :dev, runtime: false }])
     end
 
     defp package do
