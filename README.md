@@ -5,6 +5,6 @@ Installation
 ------------
 ```elixir
 defp deps do
-    [{ :bmfont, "~> 0.0.1" }]
+    [{ :bmfont, "~> 0.1.0" }]
 end
 ```
